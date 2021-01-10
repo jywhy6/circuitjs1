@@ -20,6 +20,9 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+# IDE
+.idea/
+
 # Windows shortcuts
 *.lnk
 

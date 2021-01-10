@@ -453,8 +453,8 @@ MouseOutHandler, MouseWheelHandler {
 		
 	optionsMenuBar = m = new MenuBar(true );
 	menuBar.addItem(LS("Options"), optionsMenuBar);
-	m.addItem(dotsCheckItem = new CheckboxMenuItem(LS("Show Current")));
-	dotsCheckItem.setState(true);
+	dotsCheckItem = new CheckboxMenuItem(LS("Show Current"));
+	dotsCheckItem.setState(false);
 	m.addItem(voltsCheckItem = new CheckboxMenuItem(LS("Show Voltage"),
 			new Command() { public void execute(){
 				if (voltsCheckItem.getState())
@@ -2998,7 +2998,7 @@ MouseOutHandler, MouseWheelHandler {
 	CustomLogicModel.clearDumpedFlags();
 	CustomCompositeModel.clearDumpedFlags();
 	DiodeModel.clearDumpedFlags();
-	int f = (dotsCheckItem.getState()) ? 1 : 0;
+	int f = (dotsCheckItem.getState()) ? 0 : 0;
 	f |= (smallGridCheckItem.getState()) ? 2 : 0;
 	f |= (voltsCheckItem.getState()) ? 0 : 4;
 	f |= (powerCheckItem.getState()) ? 8 : 0;
@@ -3318,7 +3318,7 @@ MouseOutHandler, MouseWheelHandler {
 
     void readOptions(StringTokenizer st) {
 	int flags = new Integer(st.nextToken()).intValue();
-	dotsCheckItem.setState((flags & 1) != 0);
+	dotsCheckItem.setState(false);
 	smallGridCheckItem.setState((flags & 2) != 0);
 	voltsCheckItem.setState((flags & 4) == 0);
 	powerCheckItem.setState((flags & 8) == 8);
